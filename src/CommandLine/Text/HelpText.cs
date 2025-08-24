@@ -191,7 +191,7 @@ namespace CommandLine.Text
                     maximumDisplayWidth = DefaultMaximumLength;
                 }
             }
-            catch (IOException)
+            catch (Exception e) when (e is IOException || e is PlatformNotSupportedException || e is ArgumentOutOfRangeException)
             {
                 maximumDisplayWidth = DefaultMaximumLength;
             }
@@ -1133,3 +1133,4 @@ namespace CommandLine.Text
 
     }
 }
+
